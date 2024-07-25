@@ -34,6 +34,7 @@ function displayBooks() {
     const author = document.createElement("p");
     const pages = document.createElement("p");
     const read = document.createElement("p");
+    const removeButton = document.createElement("button");
 
     book.classList.add("card");
     bookContainer.appendChild(book);
@@ -42,11 +43,13 @@ function displayBooks() {
     author.textContent = `Author: ${bookObj.author}`;
     pages.textContent = `Pages: ${bookObj.pages}`;
     read.textContent = `Read: ${bookObj.read}`;
+    removeButton.textContent = "REMOVE BOOK";
 
     book.appendChild(title);
     book.appendChild(author);
     book.appendChild(pages);
     book.appendChild(read);
+    book.appendChild(removeButton);
   }
 
 }
