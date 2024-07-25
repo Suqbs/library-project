@@ -59,10 +59,6 @@ header {
       flex: 1;
       min-width: fit-content;
       width: 20ch;
-      &:hover,
-      &:focus {
-        background-color: #c7523d;
-      }
     }
   }
 
@@ -87,7 +83,9 @@ article {
   background-color: #714433;
   border-radius: 3px;
   padding: var(--padding);
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   & h1 {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -105,7 +103,11 @@ article {
 }
 
 button {
-    border: none;
-    border-radius: 3px;
-    background-color: #c46352;
+  border: none;
+  border-radius: 3px;
+  background-color: #c46352;
+  &:hover,
+  &:focus {
+    background-color: #c7523d;
+  }
 }
