@@ -1,18 +1,75 @@
-*, *::before, *::after {
-    box-sizing: border-box;
+/* CSS RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    font: inherit;
+  margin: 0;
+  padding: 0;
+  font: inherit;
 }
 
 body {
-    min-height: 100dvh;
+  min-height: 100dvh;
 }
 
-img, picture, svg, video {
-    display: block;
-    max-width: 100%;
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+/* CSS RESET ENDS HERE */
+
+body {
+  background-color: #412525;
+  color: white;
+
+  & > * {
+    border: 1px solid black;
+  }
+  font: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+.container {
+  --padding: 0.5rem 1rem;
+  height: 100%;
+  display: grid;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  gap: 2rem;
+  padding: var(--padding);
+
+  & .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    & button {
+      color: white;
+      padding: var(--padding);
+      border: none;
+      border-radius: 3px;
+      background-color: #c46352;
+      flex: 1;
+      min-width: fit-content;
+      width: 17ch;
+      &:hover,
+      &:focus {
+        background-color: #c7523d;
+      }
+    }
+  }
+
+  & h1 {
+    font-size: 2rem;
+    width: max-content;
+  }
 }
