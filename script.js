@@ -8,7 +8,21 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-function addBookToLibrary() {
-  // do stuff here
-
+Book.prototype.newBook = function() {
+    addBookToLibrary(this);
 }
+
+function addBookToLibrary(Book) {
+  // do stuff here
+  myLibrary.push(Book);
+}
+
+const theHobbit = new Book(
+  "the Hobbit",
+  "J.R.R Tolkien",
+  "800",
+  "not read yet"
+);
+
+theHobbit.newBook();
+console.log(myLibrary);
