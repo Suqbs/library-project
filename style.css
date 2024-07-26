@@ -73,6 +73,7 @@ article {
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   grid-template-rows: 1fr;
   grid-gap: 1rem;
+  /* display: flex; */
   padding: var(--padding);
 }
 
@@ -81,6 +82,7 @@ article {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
   background-color: #714433;
   border-radius: 3px;
   padding: var(--padding);
@@ -89,12 +91,12 @@ article {
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   & h1 {
     font-size: 2rem;
-    margin-bottom: 2rem;
     border-bottom: 1px solid black;
+    word-break: break-all;
   }
 
-  & p {
-    margin-bottom: 1.2rem;
+  & h1 + p {
+    margin-top: auto;
   }
 
   & .flex-label {
@@ -103,11 +105,9 @@ article {
     align-items: center;
     gap: 1rem;
 
-    margin-bottom: 1.2rem;
-
-    & .read-checkbox {
-        /* vertical-align: middle; */
-    }
+    /* & .read-checkbox {
+        vertical-align: middle;
+    } */
   }
 
   & button {
