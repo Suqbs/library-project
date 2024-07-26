@@ -135,7 +135,7 @@ dialog {
         font-size: 1.2rem;
       }
 
-      & > input {
+      & > input, select {
         border: 1px solid black;
         border-radius: 3px;
         line-height: 1.7rem;
@@ -144,6 +144,7 @@ dialog {
         color: white;
         background-color: gray;
         font-size: 1.15rem;
+        accent-color: green;
 
         &:focus,
         &:hover {

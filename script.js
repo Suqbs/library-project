@@ -17,13 +17,6 @@ function addBookToLibrary(Book) {
   myLibrary.push(Book);
 }
 
-const theHobbit = new Book(
-  "the Hobbit",
-  "J.R.R Tolkien",
-  "800",
-  "not read yet"
-);
-
 function displayBooks() {
 
   const bookContainer = document.getElementById("book-container");
@@ -54,7 +47,14 @@ function displayBooks() {
 
 }
 
-theHobbit.newBook();
+const theHobbit = new Book(
+    "the Hobbit",
+    "J.R.R Tolkien",
+    "800",
+    "not read yet"
+  );
+
+theHobbit.newBook(); //adding new book
 
 console.log(myLibrary);
 
@@ -62,9 +62,18 @@ displayBooks();
 
 const newBookButton = document.getElementById("new-book-button");
 const modal = document.querySelector("dialog");
-console.log(modal);
-console.log(newBookButton);
+const modalSubmitButton = document.querySelector("#modal-submit-button");
 
 newBookButton.addEventListener("click", () => {
     modal.showModal();
+})
+
+modalSubmitButton.addEventListener("click", (e) => {
+    const titleInput = document.querySelector("#title");
+    const authorInput = document.querySelector("#author");
+    const pagesInput = document.querySelector("#pages");
+    console.log(titleInput);
+    const newBookObj = new Book();
+    e.preventDefault();
+    modal.close();
 })
