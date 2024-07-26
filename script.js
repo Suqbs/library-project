@@ -30,11 +30,13 @@ function displayBooks(bookObj) {
   const pages = document.createElement("p");
   const readContainer = document.createElement("div");
   const readLabel = document.createElement("label");
-  let readCheckbox = document.createElement("input");
+  const readCheckbox = document.createElement("input");
   const removeButton = document.createElement("button");
 
-  readLabel.setAttribute("for", "read");
-  readCheckbox.setAttribute("id", "read");
+  removeButton.setAttribute("id", "remove-book-button");
+
+//   readLabel.setAttribute("for", "read");
+//   readCheckbox.setAttribute("id", "read"); //This causes a problem because we are using same id for all labes
   readCheckbox.setAttribute("type", "checkbox");
   readCheckbox.setAttribute("name", "read-toggle");
 
@@ -67,12 +69,11 @@ function displayBooks(bookObj) {
 
   readCheckbox.addEventListener("change", (e) => {
     bookObj.read = bookObj.toggleRead(e.target);
-    readLabel.textContent = bookObj.read;
+    readLabel.textContent = bookObj.toggleRead(e.target);
   });
 }
 
 const newBookButton = document.getElementById("new-book-button");
-const removeBookButton = document.querySelectorAll("remove-book-button");
 const modal = document.querySelector("dialog");
 const modalSubmitButton = document.querySelector("#modal-submit-button");
 const modelCancelButton = document.querySelector("#modal-cancel-button");
