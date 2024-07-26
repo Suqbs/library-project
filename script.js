@@ -26,11 +26,11 @@ function displayBooks(bookObj) {
   const pages = document.createElement("p");
   const read = document.createElement("p");
   const removeButton = document.createElement("button");
-  removeButton.setAttribute("id", "remove-book-button");
+//   removeButton.setAttribute("id", "remove-book-button");
 
   book.classList.add("card");
   bookContainer.appendChild(book);
-  book.dataset.indexValue = (myLibrary.length - 1);
+//  book.dataset.indexValue = (myLibrary.length - 1);
 
   title.textContent = bookObj.title;
   author.textContent = `Author: ${bookObj.author}`;
@@ -43,10 +43,14 @@ function displayBooks(bookObj) {
   book.appendChild(pages);
   book.appendChild(read);
   book.appendChild(removeButton);
+
+  removeButton.addEventListener("click", () => {
+    book.remove();
+  })
 }
 
 const newBookButton = document.getElementById("new-book-button");
-const removeBookButton = document.getElementById("")
+const removeBookButton = document.querySelectorAll("remove-book-button");
 const modal = document.querySelector("dialog");
 const modalSubmitButton = document.querySelector("#modal-submit-button");
 const modelCancelButton = document.querySelector("#modal-cancel-button");
@@ -54,8 +58,6 @@ const modelCancelButton = document.querySelector("#modal-cancel-button");
 newBookButton.addEventListener("click", () => {
   modal.showModal();
 });
-
-
 
 modalSubmitButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -75,7 +77,7 @@ modalSubmitButton.addEventListener("click", (e) => {
 
   for (const [key, value] of Object.entries(newBookObj)) {
     if ((key !== "pages") & (value === "")) {
-      alert("Please fill all of the fields");
+      alert("Please fill out all of the fields");
       return false;
     }
   }
@@ -91,5 +93,6 @@ modalSubmitButton.addEventListener("click", (e) => {
 });
 
 modelCancelButton.addEventListener("click", (e) => {
+  e.preventDefault();
   modal.close();
 });
