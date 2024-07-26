@@ -17,63 +17,79 @@ function addBookToLibrary(Book) {
   myLibrary.push(Book);
 }
 
-function displayBooks() {
-
+function displayBooks(bookObj) {
   const bookContainer = document.getElementById("book-container");
 
-  for (const bookObj of myLibrary) {
-    const book = document.createElement("div");
-    const title = document.createElement("h1");
-    const author = document.createElement("p");
-    const pages = document.createElement("p");
-    const read = document.createElement("p");
-    const removeButton = document.createElement("button");
+  const book = document.createElement("div");
+  const title = document.createElement("h1");
+  const author = document.createElement("p");
+  const pages = document.createElement("p");
+  const read = document.createElement("p");
+  const removeButton = document.createElement("button");
+  removeButton.setAttribute("id", "remove-book-button");
 
-    book.classList.add("card");
-    bookContainer.appendChild(book);
+  book.classList.add("card");
+  bookContainer.appendChild(book);
+  book.dataset.indexValue = (myLibrary.length - 1);
 
-    title.textContent = bookObj.title;
-    author.textContent = `Author: ${bookObj.author}`;
-    pages.textContent = `Pages: ${bookObj.pages}`;
-    read.textContent = `Read: ${bookObj.read}`;
-    removeButton.textContent = "REMOVE BOOK";
+  title.textContent = bookObj.title;
+  author.textContent = `Author: ${bookObj.author}`;
+  pages.textContent = `Pages: ${bookObj.pages}`;
+  read.textContent = `Read: ${bookObj.read}`;
+  removeButton.textContent = "REMOVE BOOK";
 
-    book.appendChild(title);
-    book.appendChild(author);
-    book.appendChild(pages);
-    book.appendChild(read);
-    book.appendChild(removeButton);
-  }
-
+  book.appendChild(title);
+  book.appendChild(author);
+  book.appendChild(pages);
+  book.appendChild(read);
+  book.appendChild(removeButton);
 }
 
-const theHobbit = new Book(
-    "the Hobbit",
-    "J.R.R Tolkien",
-    "800",
-    "not read yet"
-  );
-
-theHobbit.newBook(); //adding new book
-
-console.log(myLibrary);
-
-displayBooks();
-
 const newBookButton = document.getElementById("new-book-button");
+const removeBookButton = document.getElementById("")
 const modal = document.querySelector("dialog");
 const modalSubmitButton = document.querySelector("#modal-submit-button");
+const modelCancelButton = document.querySelector("#modal-cancel-button");
 
 newBookButton.addEventListener("click", () => {
-    modal.showModal();
-})
+  modal.showModal();
+});
+
+
 
 modalSubmitButton.addEventListener("click", (e) => {
-    const titleInput = document.querySelector("#title");
-    const authorInput = document.querySelector("#author");
-    const pagesInput = document.querySelector("#pages");
-    console.log(titleInput);
-    const newBookObj = new Book();
-    e.preventDefault();
-    modal.close();
-})
+  e.preventDefault();
+
+  const titleInput = document.querySelector("#title");
+  const authorInput = document.querySelector("#author");
+  const pagesInput = document.querySelector("#pages");
+  const readInput = document.querySelector("#read-select");
+//   const regex = /^[0-9]*$/;
+
+  const newBookObj = new Book(
+    titleInput.value,
+    authorInput.value,
+    pagesInput.value,
+    readInput.value
+  );
+
+  for (const [key, value] of Object.entries(newBookObj)) {
+    if ((key !== "pages") & (value === "")) {
+      alert("Please fill all of the fields");
+      return false;
+    }
+  }
+
+  if ((pagesInput.value === "")) {
+    alert("Please enter a valid page number");
+    return false;
+  }
+
+  newBookObj.newBook();
+  displayBooks(newBookObj);
+  modal.close();
+});
+
+modelCancelButton.addEventListener("click", (e) => {
+  modal.close();
+});
