@@ -59,3 +59,12 @@ theHobbit.newBook();
 console.log(myLibrary);
 
 displayBooks();
+
+const newBookButton = document.getElementById("new-book-button");
+const modal = document.querySelector("dialog");
+console.log(modal);
+console.log(newBookButton);
+
+newBookButton.addEventListener("click", () => {
+    modal.showModal();
+})
