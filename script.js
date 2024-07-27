@@ -112,6 +112,13 @@ modalSubmitButton.addEventListener("click", (e) => {
   newBookObj.newBook();
   displayBooks(newBookObj);
   modal.close();
+
+  const defaultReadOption = readInput.querySelector("option[selected]");
+
+  titleInput.value = "";
+  authorInput.value = "";
+  pagesInput.value = "";
+  readInput.value = defaultReadOption.value;
 });
 
 modelCancelButton.addEventListener("click", (e) => {

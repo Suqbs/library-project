@@ -127,8 +127,8 @@ button {
 }
 
 dialog {
+  width: min(100%, 40ch);
   padding: 1rem 2rem;
-  max-width: 50ch;
   background-color: #714433;
   color: white;
   border-radius: 10px;
@@ -140,6 +140,7 @@ dialog {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    font-size: 1.5rem;
 
     & > p {
       display: flex;
@@ -147,7 +148,8 @@ dialog {
 
       & > label {
         margin-bottom: 0.2rem;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        font-style: italic;
       }
 
       & > input,
@@ -176,7 +178,7 @@ dialog {
       & > button {
         flex: 1;
         padding: 0.5rem 1rem;
-        font-size: 2ch;
+        font-size: 1.25rem;
         color: white;
       }
     }
@@ -191,58 +193,58 @@ dialog {
   }
 }
 
-input[type="checkbox"]{
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
-    width: 100px;
-    height: 8px;
-    background: #444;
-    border-radius: 5px;
-    position: relative;
-    outline: 0;
-    cursor: pointer;
-  }
-  
-  input[type="checkbox"]:before,
-  input[type="checkbox"]:after{
-    position: absolute;
-    content: "";
-    -webkit-transition: all .25s;
-    transition: all .25s;
-  }
-  
-  input[type="checkbox"]:before{
-    width: 40px;
-    height: 40px;
-    background: #ccc;
-    border: 5px solid #666;
-    border-radius: 50%;
-    top: 50%;
-    left: 0;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-  }
-  
-  input[type="checkbox"]:after{
-    width: 30px;
-    height: 30px;
-    background: #666;
-    border-radius: 50%;
-    top: 50%;
-    left: 10px;
-    -webkit-transform: scale(1) translateY(-50%);
-            transform: scale(1) translateY(-50%);
-    -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
-  }
-  
-  input[type="checkbox"]:checked:before{
-    left: calc(100% - 35px);
-  }
-  
-  input[type="checkbox"]:checked:after{
-    left: 75px;
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 8px;
+  background: #444;
+  border-radius: 5px;
+  position: relative;
+  outline: 0;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:before,
+input[type="checkbox"]:after {
+  position: absolute;
+  content: "";
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+input[type="checkbox"]:before {
+  width: 40px;
+  height: 40px;
+  background: #ccc;
+  border: 5px solid #666;
+  border-radius: 50%;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+input[type="checkbox"]:after {
+  width: 30px;
+  height: 30px;
+  background: #666;
+  border-radius: 50%;
+  top: 50%;
+  left: 10px;
+  -webkit-transform: scale(1) translateY(-50%);
+  transform: scale(1) translateY(-50%);
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+input[type="checkbox"]:checked:before {
+  left: calc(100% - 35px);
+}
+
+input[type="checkbox"]:checked:after {
+  left: 75px;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
