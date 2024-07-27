@@ -44,20 +44,16 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap-reverse;
   gap: 2rem;
   padding: var(--padding);
   border-bottom: 3px solid #7a3c32;
 
   & .button-container {
     display: flex;
-    flex-wrap: wrap;
     gap: 1rem;
     & button {
       color: white;
       padding: var(--padding);
-      flex: 1;
-      min-width: fit-content;
       width: 20ch;
     }
   }
@@ -65,6 +61,21 @@ header {
   & h1 {
     font-size: 2rem;
     text-shadow: 0.1em 0.1em 0 #c7523d;
+  }
+}
+
+@media only screen and (max-width: 40.625rem) {
+  header {
+    flex-direction: column-reverse;
+  }
+
+  header .button-container {
+    align-self: stretch;
+
+    & button {
+      width: auto;
+      flex-grow: 1;
+    }
   }
 }
 
@@ -248,3 +259,5 @@ input[type="checkbox"]:checked:after {
   -webkit-transform: scale(0);
   transform: scale(0);
 }
+
+
